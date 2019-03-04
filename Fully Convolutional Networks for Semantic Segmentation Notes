@@ -1,0 +1,19 @@
+Fully Convolutional Networks for Semantic Segmentation
+
+Our key insight is to build “fully convolutional” networks that take input of arbitrary size and produce correspondingly-sized output with efficient inference
+and learning
+
+Semantic segmentation takes images as inputs and ouputs lines, curves, shapes etc that sement the image.
+
+The novelty of the paper is that it
+1) does pixelwixe prediction with FCNs trained end to end
+2) uses pretrained networks
+
+Related Work
+Fully Convolutional Networks 
+- have height width depth
+- receptive fields are where deeper feilds are impacted by specific areas in shallower layers
+- translation invariance is that an image translation does not affect how its percieved
+convnets apparently are translation invariant because they work on local regions and lok for relative relationships
+
+Show fully convolutional networks (FCNs) trained pixel to pixel on semantic segmentaion are better than current methods.
