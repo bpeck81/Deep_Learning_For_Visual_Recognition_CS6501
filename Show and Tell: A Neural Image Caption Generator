@@ -1,0 +1,6 @@
+The model has the goal of taking in an image, I, and maximizing the liklihood p(S|I) such that S is a target sequence of words and each word accurately describes the image.
+Uses a pretrained CNN encoder with RNN decoder
+The model's optimization function is pretty simple: it just maximizes the log probability of generating the correct sentence given the image.
+Overall the model is extremely simple. Encodes with googlenet, decodes with an LSTM, optimizes with the -log of the true word.
+The model was evaluted using BLEU score.
+There is not much more to say about this paper.
