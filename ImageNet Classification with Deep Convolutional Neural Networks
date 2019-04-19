@@ -1,0 +1,15 @@
+https://arxiv.org/pdf/1311.2524.pdf
+The purpose of the paper was to share a CNN architecture that classifies 1.2 million images into one of 1k classes that 
+significantly outperforms previous methods of doing so.
+The architecture uses several techniques which it attributes its success to. One technique is training on multiple gpus which 
+allows for the large architecture to be supported. Local Response Normalization modifies the value fed to relu by normalizing 
+the convolution output by surrounding values. This has a “generalization” effect. Overlapping pooling summarizes CNN output 
+into pools that overlap and reduces error rates minorly. The overall architecture used is the most important aspect of the 
+paper which uses five convolutional layers and three fully connected layers. The first layer convolves the image with 96 
+kernels. the second layer response normalizes then pools the output and applies 256 kernels. The next three layers further 
+shrink the first two dimensions of the data and increase the third through convolutions. This moves into densely connected 
+layers and finally a softmax. Data augmentation which extracts sub images from an image, increases the data size by 2048 
+times and greatly reduces overfitting. Dropout of .5 is used to combat overfitting as well.
+An obvious disadvantage of the work is that that it took five days to train and was prone to overfitting because the network 
+is so large. I think this work highlights the effectiveness of using a large CNN to process image data and the important 
+techniques that should be used with the CNN. 
