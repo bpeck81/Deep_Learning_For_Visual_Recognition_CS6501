@@ -1,14 +1,30 @@
-This paper is the first to show that a CNN can lead to dramatically higher object detection performance on PASCAL VOC as compared to systems based on simpler HOG-like features. 
+This paper is the first to show that a CNN can lead to dramatically higher object detection performance on PASCAL VOC as 
+compared to systems based on simpler HOG-like features. 
 
-our method generates around 2000 category-independent region proposals for the input image, extracts a fixed-length feature vector from each proposal using a CNN, and then classifies each region with category-specific linear SVMs. 
+our method generates around 2000 category-independent region proposals for the input image, extracts a fixed-length feature 
+vector from each proposal using a CNN, and then classifies each region with category-specific linear SVMs. 
 
-The second principle contribution of this paper is to show that supervised pre-training on a large auxiliary dataset (ILSVRC), followed by domain- specific fine-tuning on a small dataset (PASCAL), is an effective paradigm for learning high-capacity CNNs when data is scarce. 
+The second principle contribution of this paper is to show that supervised pre-training on a large auxiliary dataset (ILSVRC), 
+followed by domain- specific fine-tuning on a small dataset (PASCAL), is an effective paradigm for learning high-capacity CNNs 
+when data is scarce. 
 
-Features are computed by forward propagating a mean-subtracted 227 × 227 RGB image through five convolutional layers and two fully connected layers  Of the many possible transformations of our arbitrary-shaped regions, we opt for the simplest. Regardless of the size or aspect ratio of the candidate region, we warp all pixels in a tight bounding box around it to the required size. Prior to warping, we dilate the tight bounding box so that at the warped size there are exactly p pixels of warped image context around. 
+Features are computed by forward propagating a mean-subtracted 227 × 227 RGB image through five convolutional layers and two 
+fully connected layers  Of the many possible transformations of our arbitrary-shaped regions, we opt for the simplest. 
+Regardless of the size or aspect ratio of the candidate region, we warp all pixels in a tight bounding box around it to the 
+required size. Prior to warping, we dilate the tight bounding box so that at the warped size there are exactly p pixels of 
+warped image context around. 
 
-Create 2000 regional proposal and use “selective search”. Each proposal is warped and propagated for features. Then each class uses the SVM to classifiy
+Create 2000 regional proposal and use “selective search”. Each proposal is warped and propagated for features. Then each class 
+uses the SVM to classifiy
 
-The objective of the paper is to describe a new architecture that increases the mAP sore on the VOC 2012 dataset by over 30%. The main points of the architecture are that the image is first segmented using recognition using regions where each region id downsized using “affine image warping” to get the image to the correct dimension of the can input. The CNN has five convolutional layers and two fully connected layers, outputting features that are then inputted into SVMs for each output class. For all of the sub images run through the CNN the algorithm applies intersection over union with regions with overlap higher than a threshold. The model also used the dataset for fine-tuning instead of training from scratch.The obvious advantage of this method is the extreme increase in model mAP on the dataset without sacrificing model speed. There are no apparent disadvantages compared to previous methods. I think this work was important for showing the utility of using CNNs to learn features for image classification and pretraining with a larger, related, dataset. 
-what do you think was important in this work.
+The objective of the paper is to describe a new architecture that increases the mAP sore on the VOC 2012 dataset by over 30%. 
+The main points of the architecture are that the image is first segmented using recognition using regions where each region id 
+downsized using “affine image warping” to get the image to the correct dimension of the can input. The CNN has five 
+convolutional layers and two fully connected layers, outputting features that are then inputted into SVMs for each output 
+class. For all of the sub images run through the CNN the algorithm applies intersection over union with regions with overlap 
+higher than a threshold. The model also used the dataset for fine-tuning instead of training from scratch.The obvious 
+advantage of this method is the extreme increase in model mAP on the dataset without sacrificing model speed. There are no 
+apparent disadvantages compared to previous methods. I think this work was important for showing the utility of using CNNs to 
+learn features for image classification and pretraining with a larger, related, dataset. 
 
 
